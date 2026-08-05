@@ -4,11 +4,29 @@ import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      
+      // Show navbar if scrolling UP or near the top of the page (< 50px) or if mobile menu is open
+      // Hide navbar if scrolling DOWN past 50px
+      const isVisible = prevScrollPos > currentScrollPos || currentScrollPos < 50 || isMobileMenuOpen;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(isVisible);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos, isMobileMenuOpen]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -46,7 +64,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#EEEEEE] shadow-[0_2px_10px_rgba(0,0,0,0.06)]"
+      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#EEEEEE] shadow-[0_2px_10px_rgba(0,0,0,0.06)] transition-transform duration-300 ${
+        visible ? 'translate-y-0' : '-translate-y-full'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[64px] sm:h-[72px] md:h-[76px]">
