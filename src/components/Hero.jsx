@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Compass, PhoneCall } from 'lucide-react';
+import { Compass, PhoneCall, Sparkles } from 'lucide-react';
 import { easings } from './animations';
 
 const Hero = () => {
   return (
-    <section className="relative w-full flex flex-col justify-between overflow-hidden min-h-[75vh] sm:min-h-[85vh] lg:min-h-[640px]" style={{ background: '#0a0a0a' }}>
+    <section className="relative w-full flex flex-col justify-between overflow-hidden min-h-[82vh] sm:min-h-[88vh] lg:min-h-[640px]" style={{ background: '#0a0a0a' }}>
 
       {/* Background image — fills entire section */}
       <div
@@ -17,84 +17,89 @@ const Hero = () => {
         }}
       />
 
-      {/* Overlay — lighter at top for navbar, darker toward bottom for text */}
+      {/* Overlay — dark gradient for crystal clear text readability */}
       <div className="absolute inset-0" style={{
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.40) 35%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0.90) 100%)',
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.50) 40%, rgba(0,0,0,0.80) 75%, rgba(0,0,0,0.92) 100%)',
         transform: 'translateZ(0)'
       }} />
 
       {/* Hero content — centered vertically */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-24 sm:pt-28 pb-8 sm:pb-12 max-w-5xl mx-auto w-full">
 
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: easings.premium }}
-          className="text-[#F5B301] text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.15em] uppercase mb-2 sm:mb-3"
-          style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
-        >
-          Trusted by Travelers
-        </motion.p>
-
-        {/* Main heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.3, ease: easings.premium }}
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight sm:leading-[1.1] tracking-tight mb-2.5 sm:mb-5 w-full"
-          style={{ textShadow: '0 4px 20px rgba(0,0,0,0.6)' }}
-        >
-          Arya Holidays Makes{' '}
-          <span className="text-[#F5B301]">Every Journey</span>{' '}
-          Reliable
-        </motion.h1>
-
-        {/* Decorative Divider */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: easings.premium }}
-          className="h-1 w-14 sm:w-20 bg-[#F5B301] rounded-full mb-3 sm:mb-5"
-          style={{ boxShadow: '0 2px 10px rgba(245, 179, 1, 0.4)' }}
-        />
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.55, ease: easings.premium }}
-          className="text-white/90 text-xs sm:text-base md:text-lg max-w-md sm:max-w-2xl mx-auto mb-5 sm:mb-8 leading-relaxed font-inter font-medium"
-        >
-          Discover extraordinary domestic & international travel packages, trekking adventures, and personalized holiday solutions.
-        </motion.p>
-
-        {/* Action Buttons — Side by side on mobile for compact height */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.65, ease: easings.premium }}
-          className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 w-full max-w-sm sm:max-w-none mx-auto"
-        >
-          <Link
-            to="/trips"
-            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-[#F5B301] text-[#111111] font-bold font-inter tracking-wide px-4 py-2.5 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-base hover:bg-[#ffc107] hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(245,179,1,0.5)] active:scale-95 transition-all duration-300"
-          >
-            <Compass className="w-4 h-4 text-[#111111]" />
-            <span>Explore Trips</span>
-          </Link>
+        {/* Frosted Glass Content Card on Mobile */}
+        <div className="bg-black/35 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-5 sm:p-0 rounded-3xl border border-white/10 sm:border-none shadow-2xl sm:shadow-none w-full max-w-xl sm:max-w-none mx-auto">
           
-          <Link
-            to="/contact"
-            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/10 text-white font-semibold font-inter tracking-wide px-4 py-2.5 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-base backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/60 hover:-translate-y-0.5 active:scale-95 transition-all duration-300"
+          {/* Tagline Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: easings.premium }}
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-1 bg-[#F5B301]/20 text-[#F5B301] border border-[#F5B301]/30 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3 backdrop-blur-md"
           >
-            <PhoneCall className="w-4 h-4 text-[#F5B301]" />
-            <span>Contact Us</span>
-          </Link>
-        </motion.div>
+            <Sparkles size={11} />
+            <span>Trusted by Travelers</span>
+          </motion.div>
+
+          {/* Main heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.3, ease: easings.premium }}
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-snug sm:leading-[1.1] tracking-tight mb-2.5 sm:mb-4"
+            style={{ textShadow: '0 4px 20px rgba(0,0,0,0.7)' }}
+          >
+            Arya Holidays Makes{' '}
+            <span className="text-[#F5B301]">Every Journey</span>{' '}
+            Reliable
+          </motion.h1>
+
+          {/* Decorative Divider */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.7, delay: 0.45, ease: easings.premium }}
+            className="h-1 w-16 sm:w-20 bg-[#F5B301] rounded-full mx-auto mb-3 sm:mb-5"
+            style={{ boxShadow: '0 2px 10px rgba(245, 179, 1, 0.4)' }}
+          />
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.55, ease: easings.premium }}
+            className="text-white/95 text-xs sm:text-base md:text-lg max-w-md sm:max-w-2xl mx-auto mb-5 sm:mb-8 leading-relaxed font-inter font-medium"
+          >
+            Discover extraordinary domestic & international travel packages, trekking adventures, and personalized holiday solutions.
+          </motion.p>
+
+          {/* Action Buttons — Full width buttons stacked on mobile for thumb usability */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.65, ease: easings.premium }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 w-full max-w-[260px] sm:max-w-none mx-auto"
+          >
+            <Link
+              to="/trips"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F5B301] text-[#111111] font-bold font-inter tracking-wide px-6 py-3 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-base hover:bg-[#ffc107] hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(245,179,1,0.5)] active:scale-95 transition-all duration-300"
+            >
+              <Compass className="w-4 h-4 text-[#111111]" />
+              <span>Explore Trips</span>
+            </Link>
+            
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/15 text-white font-semibold font-inter tracking-wide px-6 py-3 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-base backdrop-blur-md border border-white/30 hover:bg-white/25 hover:border-white/60 hover:-translate-y-0.5 active:scale-95 transition-all duration-300"
+            >
+              <PhoneCall className="w-4 h-4 text-[#F5B301]" />
+              <span>Contact Us</span>
+            </Link>
+          </motion.div>
+        </div>
+
       </div>
 
-      {/* Stats bar — pinned at bottom */}
+      {/* Stats bar — Glassmorphic bar pinned at bottom */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -102,8 +107,8 @@ const Hero = () => {
         className="relative z-10 w-full"
       >
         <div
-          className="grid grid-cols-3 sm:flex items-center justify-items-center justify-center sm:justify-around gap-1 sm:gap-0 px-2 sm:px-8 py-2.5 sm:py-3.5"
-          style={{ background: 'rgba(10, 45, 40, 0.94)', backdropFilter: 'blur(16px)', borderTop: '1px solid rgba(255,255,255,0.1)' }}
+          className="grid grid-cols-3 sm:flex items-center justify-items-center justify-center sm:justify-around gap-1 sm:gap-0 px-3 sm:px-8 py-3 sm:py-4"
+          style={{ background: 'linear-gradient(90deg, rgba(9,36,32,0.96) 0%, rgba(12,51,46,0.96) 50%, rgba(9,36,32,0.96) 100%)', backdropFilter: 'blur(16px)', borderTop: '1px solid rgba(255,255,255,0.12)' }}
         >
           {/* Google Reviews */}
           <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-1 sm:gap-2.5">
@@ -116,8 +121,8 @@ const Hero = () => {
               </svg>
             </div>
             <div>
-              <div className="text-white font-bold text-xs sm:text-base leading-tight">100+</div>
-              <div className="text-white/60 text-[9px] sm:text-[11px] whitespace-nowrap">Google Reviews</div>
+              <div className="text-white font-extrabold text-xs sm:text-base leading-tight">100+</div>
+              <div className="text-white/75 text-[9px] sm:text-[11px] font-semibold whitespace-nowrap">Google Reviews</div>
             </div>
           </div>
 
@@ -131,8 +136,8 @@ const Hero = () => {
               </svg>
             </div>
             <div>
-              <div className="text-white font-bold text-xs sm:text-base leading-tight">500k+</div>
-              <div className="text-white/60 text-[9px] sm:text-[11px] whitespace-nowrap">Instagram</div>
+              <div className="text-white font-extrabold text-xs sm:text-base leading-tight">500k+</div>
+              <div className="text-white/75 text-[9px] sm:text-[11px] font-semibold whitespace-nowrap">Instagram</div>
             </div>
           </div>
 
@@ -146,8 +151,8 @@ const Hero = () => {
               </svg>
             </div>
             <div>
-              <div className="text-white font-bold text-xs sm:text-base leading-tight">5k+</div>
-              <div className="text-white/60 text-[9px] sm:text-[11px] whitespace-nowrap">Happy Clients</div>
+              <div className="text-white font-extrabold text-xs sm:text-base leading-tight">5k+</div>
+              <div className="text-white/75 text-[9px] sm:text-[11px] font-semibold whitespace-nowrap">Happy Clients</div>
             </div>
           </div>
         </div>
