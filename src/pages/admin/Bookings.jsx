@@ -9,9 +9,7 @@ const AdminBookings = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('Admin Bookings: Setting up subscription...');
     const unsubscribe = subscribeToBookings((data) => {
-      console.log('Admin Bookings: Bookings loaded:', data.length);
       setBookings(data);
       setLoading(false);
     });
@@ -38,9 +36,9 @@ const AdminBookings = () => {
   };
 
   const statusColors = {
-    pending: 'bg-yellow-500/20 text-yellow-400',
-    confirmed: 'bg-green-500/20 text-green-400',
-    cancelled: 'bg-red-500/20 text-red-400'
+    pending: 'bg-amber-500/20 text-amber-400 border border-amber-500/30',
+    confirmed: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30',
+    cancelled: 'bg-red-500/20 text-red-400 border border-red-500/30'
   };
 
   const statusIcons = {
@@ -51,116 +49,115 @@ const AdminBookings = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-dark-900 flex items-center justify-center">
-        <Loader2 className="w-8 h-8 text-primary-500 animate-spin" />
+      <div className="min-h-[50vh] flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-[#F5B301] animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="bg-dark-900">
-      <div className="bg-dark-800 border-b border-dark-700 px-6 py-4 flex items-center justify-between">
+    <div className="space-y-4">
+      {/* Top Header */}
+      <div className="bg-[#111111] rounded-2xl p-4 sm:p-5 border border-[#222222] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-white">Manage Bookings</h1>
-          <p className="text-gray-400">{bookings.length} bookings total</p>
+          <h1 className="text-xl sm:text-2xl font-extrabold text-white">Manage Bookings</h1>
+          <p className="text-gray-400 text-xs sm:text-sm">{bookings.length} total bookings recorded</p>
         </div>
       </div>
 
-      <div className="p-6">
-        <div className="bg-dark-800 rounded-2xl">
-          <div className="p-6 border-b border-dark-700">
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input 
-                  type="text" 
-                  placeholder="Search by name, email, phone or trip..." 
-                  value={searchTerm} 
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-dark-900 border border-dark-600 rounded-xl pl-12 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary-500" 
-                />
-              </div>
-              <select 
-                value={statusFilter} 
-                onChange={(e) => setStatusFilter(e.target.value)}
-                className="bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500"
-              >
-                <option value="all">All Status</option>
-                <option value="pending">Pending</option>
-                <option value="confirmed">Confirmed</option>
-                <option value="cancelled">Cancelled</option>
-              </select>
+      {/* Filter and Table Container */}
+      <div className="bg-[#111111] rounded-2xl border border-[#222222] overflow-hidden">
+        {/* Search & Status Controls */}
+        <div className="p-3.5 sm:p-5 border-b border-[#222222]">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="relative flex-1">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input 
+                type="text" 
+                placeholder="Search by customer name, email, phone or trip..." 
+                value={searchTerm} 
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full bg-[#1a1a1a] border border-[#333333] rounded-xl pl-10 pr-4 py-2 text-xs sm:text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#F5B301]" 
+              />
             </div>
+            <select 
+              value={statusFilter} 
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="bg-[#1a1a1a] border border-[#333333] rounded-xl px-4 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-[#F5B301] cursor-pointer"
+            >
+              <option value="all">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
           </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="text-left text-gray-400 text-sm border-b border-dark-700">
-                  <th className="p-6 font-medium">Customer</th>
-                  <th className="p-6 font-medium">Contact</th>
-                  <th className="p-6 font-medium">Trip</th>
-                  <th className="p-6 font-medium">Travelers</th>
-                  <th className="p-6 font-medium">Date</th>
-                  <th className="p-6 font-medium">Amount</th>
-                  <th className="p-6 font-medium">Status</th>
-                  <th className="p-6 font-medium">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredBookings.map((booking) => {
-                  const StatusIcon = statusIcons[booking.status] || Clock;
-                  return (
-                    <tr key={booking.id} className="border-b border-dark-700 last:border-0 hover:bg-dark-700/50 transition-colors">
-                      <td className="p-6">
-                        <div className="text-white font-medium">{booking.name}</div>
-                        <div className="text-gray-500 text-sm">{booking.email}</div>
-                      </td>
-                      <td className="p-6">
-                        <div className="flex flex-col gap-1">
-                          <span className="flex items-center gap-2 text-gray-400 text-sm">
-                            <Phone size={14} /> {booking.phone}
-                          </span>
-                        </div>
-                      </td>
-                      <td className="p-6">
-                        <div className="text-white font-medium">{booking.tripName || 'N/A'}</div>
-                        <div className="text-gray-500 text-sm">{booking.selectedDate}</div>
-                      </td>
-                      <td className="p-6 text-gray-300">{booking.travelers}</td>
-                      <td className="p-6 text-gray-300">{booking.bookingDate || 'N/A'}</td>
-                      <td className="p-6 text-white font-semibold">₹{booking.amount?.toLocaleString() || 0}</td>
-                      <td className="p-6">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1 w-fit ${statusColors[booking.status]}`}>
-                          <StatusIcon size={14} />
-                          {booking.status?.charAt(0).toUpperCase() + booking.status?.slice(1)}
-                        </span>
-                      </td>
-                      <td className="p-6">
-                        <select 
-                          value={booking.status} 
-                          onChange={(e) => handleUpdateStatus(booking.id, e.target.value)}
-                          className="bg-dark-700 border border-dark-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-primary-500"
-                        >
-                          <option value="pending">Pending</option>
-                          <option value="confirmed">Confirmed</option>
-                          <option value="cancelled">Cancelled</option>
-                        </select>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          {filteredBookings.length === 0 && (
-            <div className="text-center py-12">
-              <Calendar className="w-12 h-12 text-gray-600 mx-auto mb-4" />
-              <p className="text-gray-400">No bookings found</p>
-            </div>
-          )}
         </div>
+
+        {/* Responsive Table Wrapper */}
+        <div className="overflow-x-auto w-full">
+          <table className="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr className="text-gray-400 border-b border-[#222222] bg-[#161616]">
+                <th className="p-3 sm:p-4 font-bold uppercase text-[10px] tracking-wider">Customer</th>
+                <th className="p-3 sm:p-4 font-bold uppercase text-[10px] tracking-wider">Contact</th>
+                <th className="p-3 sm:p-4 font-bold uppercase text-[10px] tracking-wider">Trip</th>
+                <th className="p-3 sm:p-4 font-bold uppercase text-[10px] tracking-wider">Travelers</th>
+                <th className="p-3 sm:p-4 font-bold uppercase text-[10px] tracking-wider">Amount</th>
+                <th className="p-3 sm:p-4 font-bold uppercase text-[10px] tracking-wider">Status</th>
+                <th className="p-3 sm:p-4 font-bold uppercase text-[10px] tracking-wider">Update Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredBookings.map((booking) => {
+                const StatusIcon = statusIcons[booking.status] || Clock;
+                return (
+                  <tr key={booking.id} className="border-b border-[#222222] last:border-0 hover:bg-[#1a1a1a] transition-colors">
+                    <td className="p-3 sm:p-4">
+                      <div className="text-white font-bold">{booking.name || 'Guest'}</div>
+                      <div className="text-gray-400 text-[11px]">{booking.email || 'No Email'}</div>
+                    </td>
+                    <td className="p-3 sm:p-4">
+                      <a href={`tel:${booking.phone}`} className="flex items-center gap-1.5 text-gray-300 hover:text-[#F5B301] text-xs font-semibold">
+                        <Phone size={12} className="text-[#F5B301]" />
+                        <span>{booking.phone || 'N/A'}</span>
+                      </a>
+                    </td>
+                    <td className="p-3 sm:p-4">
+                      <div className="text-white font-semibold line-clamp-1">{booking.tripName || 'N/A'}</div>
+                      <div className="text-gray-400 text-[11px]">{booking.selectedDate || booking.bookingDate}</div>
+                    </td>
+                    <td className="p-3 sm:p-4 text-gray-300 font-semibold">{booking.travelers || 1} Person</td>
+                    <td className="p-3 sm:p-4 text-[#F5B301] font-bold">₹{(booking.amount || booking.price || 0).toLocaleString()}</td>
+                    <td className="p-3 sm:p-4">
+                      <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold flex items-center gap-1 w-fit ${statusColors[booking.status || 'pending']}`}>
+                        <StatusIcon size={12} />
+                        {(booking.status || 'Pending').toUpperCase()}
+                      </span>
+                    </td>
+                    <td className="p-3 sm:p-4">
+                      <select 
+                        value={booking.status || 'pending'} 
+                        onChange={(e) => handleUpdateStatus(booking.id, e.target.value)}
+                        className="bg-[#222222] border border-[#333333] rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none focus:border-[#F5B301] cursor-pointer font-medium"
+                      >
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="cancelled">Cancelled</option>
+                      </select>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        {filteredBookings.length === 0 && (
+          <div className="text-center py-12">
+            <Calendar className="w-10 h-10 text-gray-600 mx-auto mb-3" />
+            <p className="text-gray-400 text-xs sm:text-sm">No bookings match your filter criteria.</p>
+          </div>
+        )}
       </div>
     </div>
   );
