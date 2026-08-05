@@ -5,11 +5,11 @@ import { subscribeToContactInfo } from '../firebase';
 
 const defaultContact = {
   branches: [
-    { label: 'Pune', address: 'Shop No. 109, ARV Royale, Handewadi Road, Hadapsar, Pune - 411028 - Maharashtra' },
-    { label: 'Chh. Sambhajinagar', address: 'Shop No. 24, Bhagrathi Heights, Chate School Road, Satara Parisar, Chh. Sambhajinagar 431010 - Maharashtra' }
+    { label: 'Pune', address: 'Shop 109, ARV Royale, Handewadi Rd, Hadapsar, Pune' },
+    { label: 'Chh. Sambhajinagar', address: 'Shop 24, Bhagrathi Heights, Satara Parisar' }
   ],
-  phones: ['+91 7972475007', '+91 9673982555', '+91 9637476999'],
-  emails: ['info@aryaholidays.com', 'santosh@aryaholidays.com'],
+  phones: ['+91 7972475007', '+91 9673982555'],
+  emails: ['info@aryaholidays.com'],
   facebook: '#', instagram: '#', twitter: '#', youtube: '#'
 };
 
@@ -43,108 +43,96 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden" style={{ background: '#ffffff', borderTop: '1px solid #EEEEEE' }}>
+    <footer className="relative overflow-hidden bg-white border-t border-[#EEEEEE]">
+      {/* Top accent line */}
+      <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#F5B301] to-transparent" />
 
-      {/* Decorative top border */}
-      <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, transparent, #F5B301, transparent)' }} />
+      <div className="container-custom pt-8 sm:pt-10 pb-6 sm:pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8">
 
-      <div className="container-custom pt-14 pb-10 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-          {/* Brand */}
-          <div className="lg:col-span-1 space-y-5">
-            <Link to="/" className="flex flex-col items-start w-fit">
-              <div className="flex flex-col items-center">
-                <img src="/arya.png" alt="Arya Holidays" className="h-16 w-auto object-contain" />
-                <span className="text-[9.5px] font-bold tracking-wide whitespace-nowrap mt-[2px] text-[#111111]">
-                  Reliable Travel Solutions
-                </span>
-              </div>
+          {/* Brand & Description (4 cols) */}
+          <div className="md:col-span-4 space-y-3">
+            <Link to="/" className="inline-block">
+              <img src="/arya.png" alt="Arya Holidays" className="h-12 sm:h-14 w-auto object-contain" />
+              <span className="block text-[8px] sm:text-[9px] font-bold tracking-wider uppercase text-[#111111] mt-0.5">
+                Reliable Travel Solutions
+              </span>
             </Link>
-            <p className="text-[#555555] font-poppins font-medium text-[14.5px] leading-relaxed">
-              Your premium travel partner crafting unforgettable journeys through spectacular destinations worldwide.
+            <p className="text-[#555555] text-xs sm:text-sm leading-relaxed max-w-sm">
+              Your trusted travel partner for domestic & international holidays, trekking adventures, and complete travel services.
             </p>
-            <div className="flex gap-2.5">
+            <div className="flex gap-2 pt-1">
               {socialLinks.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center text-[#555555] hover:text-white hover:bg-[#F5B301] transition-all duration-300 border border-[#EEEEEE] hover:border-[#F5B301]">
-                  <s.icon size={16} />
+                  className="w-8 h-8 rounded-lg flex items-center justify-center text-[#555555] hover:text-white hover:bg-[#F5B301] transition-all border border-[#EEEEEE]">
+                  <s.icon size={14} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Pages */}
-          <div>
-            <h4 className="text-lg font-extrabold font-poppins text-[#111111] mb-6 tracking-wide flex items-center gap-3">
-              <span className="w-8 h-[3px] drop-shadow-[0_2px_4px_rgba(245,179,1,0.4)] bg-[#F5B301] rounded-full" />
+          {/* Quick Links (4 cols - 2 column grid on mobile) */}
+          <div className="md:col-span-4">
+            <h4 className="text-sm font-bold font-poppins text-[#111111] mb-3 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-4 h-[2px] bg-[#F5B301] rounded-full" />
               Quick Links
             </h4>
-            <ul className="space-y-2.5">
+            <div className="grid grid-cols-2 gap-y-2 gap-x-4">
               {allPages.map((link) => (
-                <li key={link.path}>
-                  <Link to={link.path}
-                    className="text-[#555555] hover:text-[#F5B301] transition-all duration-300 text-[14.5px] font-poppins font-semibold flex items-center gap-2.5 group">
-                    <span className="w-1.5 h-1.5 bg-[#F5B301]/40 rounded-full group-hover:bg-[#F5B301] transition-colors flex-shrink-0" />
-                    <span className="group-hover:translate-x-1.5 transition-transform duration-300">{link.name}</span>
-                  </Link>
-                </li>
+                <Link key={link.path} to={link.path}
+                  className="text-[#555555] hover:text-[#F5B301] transition-colors text-xs font-semibold flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 bg-[#F5B301]/60 rounded-full group-hover:bg-[#F5B301]" />
+                  <span className="truncate">{link.name}</span>
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Contact */}
-          <div className="lg:col-span-2">
-            <h4 className="text-lg font-extrabold font-poppins text-[#111111] mb-6 tracking-wide flex items-center gap-3">
-              <span className="w-8 h-[3px] drop-shadow-[0_2px_4px_rgba(245,179,1,0.4)] bg-[#F5B301] rounded-full" />
-              Contact Us
+          {/* Contact (4 cols) */}
+          <div className="md:col-span-4 space-y-3">
+            <h4 className="text-sm font-bold font-poppins text-[#111111] mb-3 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-4 h-[2px] bg-[#F5B301] rounded-full" />
+              Contact
             </h4>
-            <ul className="space-y-4">
-              {contact.branches?.map((b, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#F5B301]/10 border border-[#F5B301]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MapPin className="w-4 h-4 text-[#F5B301]" />
-                  </div>
+            
+            <div className="space-y-2 text-xs">
+              {contact.branches?.slice(0, 2).map((b, i) => (
+                <div key={i} className="flex items-start gap-2 text-[#555555]">
+                  <MapPin className="w-3.5 h-3.5 text-[#F5B301] flex-shrink-0 mt-0.5" />
                   <div>
-                    {b.label && <div className="text-[#F5B301] text-[13px] tracking-wide font-extrabold font-poppins uppercase mb-1">{b.label}</div>}
-                    <div className="text-[#555555] text-[14.5px] font-poppins font-medium leading-relaxed">{b.address}</div>
+                    <span className="font-bold text-[#111111]">{b.label}: </span>
+                    <span>{b.address}</span>
                   </div>
-                </li>
+                </div>
               ))}
 
-              <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#F5B301]/10 border border-[#F5B301]/20 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-4 h-4 text-[#F5B301]" />
-                </div>
-                <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2 text-[#555555] pt-1">
+                <Phone className="w-3.5 h-3.5 text-[#F5B301] flex-shrink-0" />
+                <div className="flex flex-wrap gap-x-3 gap-y-1 font-semibold">
                   {contact.phones?.map((p, i) => (
-                    <a key={i} href={`tel:${p.replace(/\s/g, '')}`}
-                      className="text-[#555555] hover:text-[#F5B301] font-poppins font-semibold transition-colors text-[14.5px]">{p}</a>
+                    <a key={i} href={`tel:${p.replace(/\s/g, '')}`} className="hover:text-[#F5B301] transition-colors">{p}</a>
                   ))}
                 </div>
-              </li>
+              </div>
 
-              <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-[#F5B301]/10 border border-[#F5B301]/20 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4 text-[#F5B301]" />
-                </div>
-                <div className="flex flex-col gap-1">
-                  {contact.emails?.map((e, i) => (
-                    <a key={i} href={`mailto:${e}`}
-                      className="text-[#555555] hover:text-[#F5B301] font-poppins font-semibold transition-colors text-[14.5px]">{e}</a>
-                  ))}
-                </div>
-              </li>
-            </ul>
+              <div className="flex items-center gap-2 text-[#555555]">
+                <Mail className="w-3.5 h-3.5 text-[#F5B301] flex-shrink-0" />
+                <a href={`mailto:${contact.emails?.[0] || 'info@aryaholidays.com'}`} className="hover:text-[#F5B301] font-semibold transition-colors">
+                  {contact.emails?.[0] || 'info@aryaholidays.com'}
+                </a>
+              </div>
+            </div>
           </div>
+
         </div>
 
-        {/* Divider */}
-        <div className="mt-12 pt-6 border-t border-[#EEEEEE] flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[#888888] text-sm">© {currentYear} Arya Holidays. All rights reserved.</p>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-[#888888] hover:text-[#F5B301] transition-colors">Privacy Policy</a>
-            <a href="#" className="text-[#888888] hover:text-[#F5B301] transition-colors">Terms of Service</a>
+        {/* Bottom copyright bar */}
+        <div className="mt-6 pt-4 border-t border-[#EEEEEE] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#888888]">
+          <p>© {currentYear} Arya Holidays. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-[#F5B301] transition-colors">Privacy Policy</a>
+            <span>•</span>
+            <a href="#" className="hover:text-[#F5B301] transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
