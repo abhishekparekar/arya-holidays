@@ -89,13 +89,13 @@ const TrendingCategories = () => {
           </div>
         </div>
 
-        {/* Horizontal Category Scroll Bar (Hidden Scrollbar Line) */}
+        {/* Horizontal Category Scroll Bar (Mobile & Desktop) */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto pb-2 pt-1 gap-3 sm:gap-5 snap-x snap-mandatory scroll-smooth"
+          className="flex overflow-x-auto pb-4 pt-1 gap-3 sm:gap-5 snap-x snap-mandatory scroll-smooth"
           style={{
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#F5B301 #E5E7EB',
             WebkitOverflowScrolling: 'touch'
           }}
         >
@@ -129,7 +129,7 @@ const TrendingCategories = () => {
                       </div>
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    
+
                     {/* Badge */}
                     <div className={`absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full text-[11px] font-bold backdrop-blur-md ${color.bg} text-white shadow-sm`}>
                       #{index + 1} Trending
@@ -141,7 +141,7 @@ const TrendingCategories = () => {
                     <h3 className="text-sm sm:text-base font-bold text-black group-hover:text-[#F5B301] transition-colors line-clamp-1 mb-1">
                       {categoryTitle}
                     </h3>
-                    
+
                     {category.description && (
                       <p className="text-black font-medium text-xs line-clamp-2 mb-3">
                         {category.description}
@@ -153,7 +153,7 @@ const TrendingCategories = () => {
                         <MapPin size={12} className="text-[#F5B301] flex-shrink-0" />
                         <span className="line-clamp-1">{category.location || 'Explore Packages'}</span>
                       </div>
-                      
+
                       <div className="flex items-center gap-0.5 text-[#F5B301] text-xs font-bold group-hover:translate-x-0.5 transition-transform">
                         <span>View</span>
                         <ArrowRight size={12} />
