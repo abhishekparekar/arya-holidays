@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Compass, PhoneCall } from 'lucide-react';
 import { easings } from './animations';
 
 const Hero = () => {
@@ -17,12 +19,12 @@ const Hero = () => {
 
       {/* Overlay — lighter at top for navbar, darker toward bottom for text */}
       <div className="absolute inset-0" style={{
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.20) 30%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0.70) 100%)',
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.30) 30%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0.80) 100%)',
         transform: 'translateZ(0)'
       }} />
 
       {/* Hero content — centered vertically in the viewport */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-24 pb-10">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-28 pb-12">
 
         {/* Tagline */}
         <motion.p
@@ -53,9 +55,43 @@ const Hero = () => {
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.55, ease: easings.premium }}
-          className="h-1 w-20 sm:w-24 bg-[#F5B301] rounded-full mt-1 sm:mt-2"
+          className="h-1 w-20 sm:w-24 bg-[#F5B301] rounded-full mb-6"
           style={{ boxShadow: '0 2px 10px rgba(245, 179, 1, 0.4)' }}
         />
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.62, ease: easings.premium }}
+          className="text-white/85 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed font-inter font-medium"
+        >
+          Discover extraordinary domestic & international travel packages, trekking adventures, and personalized holiday solutions.
+        </motion.p>
+
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.72, ease: easings.premium }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+        >
+          <Link
+            to="/trips"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#F5B301] text-[#111111] font-bold font-inter tracking-wide px-8 py-3.5 rounded-full text-sm sm:text-base hover:bg-[#ffc107] hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(245,179,1,0.5)] active:scale-95 transition-all duration-300"
+          >
+            <Compass className="w-5 h-5 text-[#111111]" />
+            Explore Trips
+          </Link>
+          
+          <Link
+            to="/contact"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white/10 text-white font-semibold font-inter tracking-wide px-8 py-3.5 rounded-full text-sm sm:text-base backdrop-blur-md border border-white/30 hover:bg-white/20 hover:border-white/60 hover:-translate-y-1 active:scale-95 transition-all duration-300"
+          >
+            <PhoneCall className="w-5 h-5 text-[#F5B301]" />
+            Contact Us
+          </Link>
+        </motion.div>
       </div>
 
       {/* Stats bar — pinned flush at the bottom edge */}

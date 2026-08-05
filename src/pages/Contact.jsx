@@ -7,7 +7,7 @@ const defaultContact = {
     { label: 'Pune', address: 'Shop No. 109, ARV Royale, Handewadi Road, Hadapsar, Pune - 411028 - Maharashtra' },
     { label: 'Chh. Sambhajinagar', address: 'Shop No. 24, Bhagrathi Heights, Chate School Road, Satara Parisar, Chh. Sambhajinagar 431010 - Maharashtra' }
   ],
-  phones: ['+91 9673982555', '+91 9637476999'],
+  phones: ['+91 7972475007', '+91 9673982555', '+91 9637476999'],
   emails: ['info@aryaholidays.com', 'santosh@aryaholidays.com'],
   workingHours: 'Mon - Sat: 9AM - 8PM | Sunday: 10AM - 6PM'
 };
