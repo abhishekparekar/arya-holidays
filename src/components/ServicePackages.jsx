@@ -16,7 +16,7 @@ const tourPackages = [
   { id: 'waterpark', title: 'Water Park Packages', description: 'Cool off with exciting water park adventures.', icon: Waves, image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80', color: 'cyan', category: 'Domestic', price: 'Starting ₹2,500' }
 ];
 
-const otherServices = [
+const initialOtherServices = [
   { id: 'flights', title: 'Flight Tickets', description: 'Domestic & International flights at best prices.', icon: Plane, image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600&q=80', color: 'sky', features: ['All Airlines', 'Best Prices', 'Instant Booking', '24/7 Support'] },
   { id: 'trains', title: 'Railway Tickets', description: 'Train bookings for all routes.', icon: Train, image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80', color: 'indigo', features: ['All Routes', 'Confirmed Tickets', 'Group Bookings', 'Special Trains'] },
   { id: 'hotels', title: 'Hotel Booking', description: 'Premium hotels, resorts, and homestays.', icon: Building2, image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80', color: 'violet', features: ['5-Star to Budget', 'Free Cancellation', 'Best Rates', 'Verified Properties'] },
@@ -32,10 +32,14 @@ const tourColorMap = { pink: { bg: 'bg-pink-100', text: 'text-pink-500' }, blue:
 
 const ServicePackages = () => {
   const scrollRef = useRef(null);
-  const [otherServices, setOtherServices] = useState([]);
+  const [otherServices, setOtherServices] = useState(initialOtherServices);
 
   useEffect(() => {
-    const unsub = subscribeToTravelServices(items => setOtherServices(items));
+    const unsub = subscribeToTravelServices(items => {
+      if (items && items.length > 0) {
+        setOtherServices(items);
+      }
+    });
     return () => unsub();
   }, []);
 
