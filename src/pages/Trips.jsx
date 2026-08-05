@@ -49,46 +49,46 @@ const Trips = () => {
   return (
     <div className="min-h-screen bg-[#F8F9FB]">
       {/* Hero Banner */}
-      <div className="relative h-[40vh] min-h-[260px] overflow-hidden">
+      <div className="relative h-[30vh] min-h-[200px] sm:min-h-[240px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=2070&q=80"
           alt="Adventures"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10" />
-        <div className="absolute inset-0 flex flex-col justify-end pb-8 pt-20">
+        <div className="absolute inset-0 flex flex-col justify-end pb-5 pt-16 sm:pb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <nav className="flex items-center gap-1.5 text-xs text-white/70 mb-3">
+            <nav className="flex items-center gap-1.5 text-[11px] text-white/70 mb-2">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
-              <ChevronRight size={12} />
+              <ChevronRight size={11} />
               <span className="text-white">Trips</span>
             </nav>
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#F5B301]/20 text-[#F5B301] rounded-full text-xs font-medium mb-2 backdrop-blur-sm">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-[#F5B301]/20 text-[#F5B301] rounded-full text-[10px] sm:text-xs font-semibold mb-1.5 backdrop-blur-sm">
                   <LayoutGrid size={10} />
                   Featured
                 </span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                   Explore Our <span className="text-[#F5B301]">Adventures</span>
                 </h1>
-                <p className="text-white/70 text-sm mt-1">Discover handpicked experiences for every skill level</p>
+                <p className="text-white/70 text-xs sm:text-sm mt-0.5">Discover handpicked experiences for every skill level</p>
               </div>
               {/* Stats */}
-              <div className="flex gap-4 bg-white/15 backdrop-blur-md rounded-xl px-4 py-3 border border-white/20">
+              <div className="hidden sm:flex gap-3 bg-white/15 backdrop-blur-md rounded-xl px-3.5 py-2 border border-white/20">
                 <div className="text-center">
-                  <div className="text-xl font-bold text-white">{trips.length}</div>
-                  <div className="text-xs text-white/70">Total</div>
+                  <div className="text-lg font-bold text-white">{trips.length}</div>
+                  <div className="text-[10px] text-white/70">Total</div>
                 </div>
                 <div className="w-px bg-white/20" />
                 <div className="text-center">
-                  <div className="text-xl font-bold text-emerald-400">{domesticCount}</div>
-                  <div className="text-xs text-white/70">Domestic</div>
+                  <div className="text-lg font-bold text-emerald-400">{domesticCount}</div>
+                  <div className="text-[10px] text-white/70">Domestic</div>
                 </div>
                 <div className="w-px bg-white/20" />
                 <div className="text-center">
-                  <div className="text-xl font-bold text-blue-400">{internationalCount}</div>
-                  <div className="text-xs text-white/70">International</div>
+                  <div className="text-lg font-bold text-blue-400">{internationalCount}</div>
+                  <div className="text-[10px] text-white/70">International</div>
                 </div>
               </div>
             </div>
@@ -100,17 +100,17 @@ const Trips = () => {
       <div className="sticky top-16 lg:top-[70px] z-40 bg-white border-b border-[#EEEEEE] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Type Filters */}
-          <div className="flex items-center gap-2 py-3 overflow-x-auto scrollbar-hide">
+          <div className="flex items-center gap-2 py-2.5 overflow-x-auto scrollbar-hide">
             <button
               onClick={() => setType('all')}
-              className="px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all"
+              className="px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all"
               style={{ background: selectedType === 'all' ? '#F5B301' : '#F3F4F6', color: selectedType === 'all' ? '#111111' : '#555555' }}
             >
               All ({trips.length})
             </button>
             <button
               onClick={() => setType('domestic')}
-              className="px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 transition-all"
+              className="px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap flex items-center gap-1 transition-all"
               style={{ background: selectedType === 'domestic' ? '#10b981' : '#F3F4F6', color: selectedType === 'domestic' ? '#ffffff' : '#555555' }}
             >
               <MapPin size={11} />
@@ -118,7 +118,7 @@ const Trips = () => {
             </button>
             <button
               onClick={() => setType('international')}
-              className="px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 transition-all"
+              className="px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap flex items-center gap-1 transition-all"
               style={{ background: selectedType === 'international' ? '#3b82f6' : '#F3F4F6', color: selectedType === 'international' ? '#ffffff' : '#555555' }}
             >
               <Globe size={11} />
@@ -126,14 +126,14 @@ const Trips = () => {
             </button>
 
             {/* Divider */}
-            {categories.length > 1 && <div className="w-px h-5 bg-[#EEEEEE] mx-1 flex-shrink-0" />}
+            {categories.length > 1 && <div className="w-px h-4 bg-[#EEEEEE] mx-1 flex-shrink-0" />}
 
             {/* Category Filters */}
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setCategory(cat.id)}
-                className="px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all"
+                className="px-3.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all"
                 style={{ background: selectedCategory === cat.id ? '#111111' : '#F3F4F6', color: selectedCategory === cat.id ? '#F5B301' : '#555555' }}
               >
                 {cat.title}
@@ -144,8 +144,8 @@ const Trips = () => {
       </div>
 
       {/* Results */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <p className="text-sm text-[#888888] mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8">
+        <p className="text-xs sm:text-sm text-[#888888] mb-4">
           Showing <span className="text-[#111111] font-semibold">{filteredTrips.length}</span> adventures
         </p>
 

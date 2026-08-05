@@ -42,19 +42,19 @@ const TestimonialsPage = () => {
   return (
     <div className="min-h-screen bg-[#F8F9FB]">
       {/* Header */}
-      <div className="bg-white border-b border-[#EEEEEE] pt-20 pb-10">
+      <div className="bg-white border-b border-[#EEEEEE] pt-20 sm:pt-24 pb-6 sm:pb-8">
         <div className="container-custom">
-          <nav className="flex items-center gap-1.5 text-xs text-[#888888] mb-3">
+          <nav className="flex items-center gap-1.5 text-xs text-[#888888] mb-2">
             <Link to="/" className="hover:text-[#F5B301] transition-colors">Home</Link>
             <span>/</span>
             <span className="text-[#111111]">Testimonials</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#111111] mb-2">What Our <span className="text-[#F5B301]">Clients Say</span></h1>
-          <p className="text-[#555555]">Real stories from real travelers who traveled with Arya Holidays</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] mb-1.5">What Our <span className="text-[#F5B301]">Clients Say</span></h1>
+          <p className="text-[#555555] text-xs sm:text-sm">Real stories from real travelers who traveled with Arya Holidays</p>
         </div>
       </div>
 
-      <div className="container-custom py-10">
+      <div className="container-custom py-6 sm:py-8">
         {active.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-2xl border border-[#EEEEEE]">
             <Quote className="w-12 h-12 text-[#9CA3AF] mx-auto mb-3" />

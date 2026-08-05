@@ -52,19 +52,19 @@ const Gallery = () => {
 
   return (
     <>
-      <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: 'radial-gradient(ellipse at 80% 0%, rgba(245,179,1,0.06) 0%, transparent 50%), radial-gradient(ellipse at 20% 100%, rgba(139,92,246,0.05) 0%, transparent 50%), linear-gradient(180deg, #FAFAFA 0%, #ffffff 100%)' }}>
+      <section className="py-10 sm:py-12 md:py-14 relative overflow-hidden" style={{ background: 'radial-gradient(ellipse at 80% 0%, rgba(245,179,1,0.06) 0%, transparent 50%), radial-gradient(ellipse at 20% 100%, rgba(139,92,246,0.05) 0%, transparent 50%), linear-gradient(180deg, #FAFAFA 0%, #ffffff 100%)' }}>
         <div className="container-custom relative">
-          <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 bg-[#F5B301]/10 border border-[#F5B301]/20 rounded-full px-4 py-2 mb-6 shadow-sm"><Image className="w-4 h-4 text-[#F5B301]" /><span className="text-[#F5B301] text-sm font-semibold tracking-wide uppercase">Gallery</span></div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111111] mb-6 tracking-tight">Captured <span className="text-[#F5B301]">Moments</span></h2>
-            <p className="text-[#555555] max-w-2xl mx-auto text-lg leading-relaxed">
+          <motion.div className="text-center mb-6 sm:mb-8" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.7 }}>
+            <div className="inline-flex items-center gap-1.5 bg-[#F5B301]/10 border border-[#F5B301]/20 rounded-full px-3.5 py-1.5 mb-3 shadow-sm"><Image className="w-3.5 h-3.5 text-[#F5B301]" /><span className="text-[#F5B301] text-xs font-semibold tracking-wide uppercase">Gallery</span></div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] mb-2 tracking-tight">Captured <span className="text-[#F5B301]">Moments</span></h2>
+            <p className="text-[#555555] max-w-2xl mx-auto text-xs sm:text-sm">
               Real adventures, real experiences. See what awaits you in the mountains.
             </p>
           </motion.div>
 
           <motion.div 
             ref={scrollRef}
-            className="flex overflow-x-auto pb-10 pt-4 px-4 -mx-4 sm:px-0 sm:-mx-0 snap-x snap-mandatory gap-4 md:gap-6 lg:gap-8 scroll-smooth" 
+            className="flex overflow-x-auto pb-4 pt-2 px-2 -mx-2 sm:px-0 sm:-mx-0 snap-x snap-mandatory gap-3 sm:gap-5 md:gap-6 scroll-smooth" 
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }}
             initial="hidden"
@@ -79,8 +79,8 @@ const Gallery = () => {
                 key={img.id}
                 variants={{ hidden: { opacity: 0, scale: 0.9, y: 20 }, visible: { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } } }}
                 onClick={() => { setLightboxIndex(index); setLightboxOpen(true); }}
-                whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
-                className="relative group overflow-hidden rounded-2xl md:rounded-3xl shadow-sm hover:shadow-2xl border border-black/5 transition-all duration-300 transform-gpu flex-none w-[80vw] sm:w-[320px] md:w-[400px] h-[300px] sm:h-[400px] md:h-[450px] snap-center"
+                whileHover={{ y: -6, transition: { type: "spring", stiffness: 300 } }}
+                className="relative group overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-2xl border border-black/5 transition-all duration-300 transform-gpu flex-none w-[78vw] sm:w-[280px] md:w-[360px] h-[240px] sm:h-[320px] md:h-[380px] snap-center"
               >
                 <img
                   src={img.url}

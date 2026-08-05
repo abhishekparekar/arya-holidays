@@ -34,18 +34,18 @@ const FeaturedDestinations = () => {
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
       <div className="container-custom relative">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-[#F5B301]/10 text-[#F5B301] rounded-full text-sm font-medium mb-4">Featured Destinations</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] mb-6">Discover Your Next<span className="block text-gradient">Adventure</span></h2>
-          <p className="text-[#555555] max-w-2xl mx-auto text-lg">Handpicked destinations that promise unforgettable experiences. Each journey crafted for the ultimate explorer.</p>
+        <div className="text-center mb-6 sm:mb-8">
+          <span className="inline-block px-3.5 py-1.5 bg-[#F5B301]/10 text-[#F5B301] rounded-full text-xs font-semibold mb-3">Featured Destinations</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] mb-2">Discover Your Next<span className="block text-gradient">Adventure</span></h2>
+          <p className="text-[#555555] max-w-2xl mx-auto text-xs sm:text-sm">Handpicked destinations that promise unforgettable experiences.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {trips.map((trip) => (<TripCard key={trip.id} trip={trip} />))}
         </div>
 
-        <div className="text-center mt-12">
-          <Link to="/trips" className="btn-primary inline-flex items-center gap-2">View All Destinations <ArrowRight size={18} /></Link>
+        <div className="text-center mt-6 sm:mt-8">
+          <Link to="/trips" className="btn-primary inline-flex items-center gap-2 text-sm sm:text-base py-3 px-6">View All Destinations <ArrowRight size={16} /></Link>
         </div>
       </div>
     </section>

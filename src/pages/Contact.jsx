@@ -52,14 +52,14 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-[#F8F9FB]">
-      <div className="bg-white border-b border-[#EEEEEE] pt-28 pb-10">
+      <div className="bg-white border-b border-[#EEEEEE] pt-20 sm:pt-24 pb-6 sm:pb-8">
         <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#111111] mb-3">Get In Touch</h1>
-          <p className="text-[#555555] max-w-xl mx-auto">Have questions? Send us a message and we'll respond as soon as possible.</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] mb-2">Get In Touch</h1>
+          <p className="text-[#555555] text-xs sm:text-sm max-w-xl mx-auto">Have questions? Send us a message and we'll respond as soon as possible.</p>
         </div>
       </div>
 
-      <div className="container-custom py-12">
+      <div className="container-custom py-6 sm:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Form */}
           <div className="lg:col-span-2">

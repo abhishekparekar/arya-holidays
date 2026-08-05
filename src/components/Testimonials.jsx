@@ -47,16 +47,16 @@ const Testimonials = () => {
   if (activeTestimonials.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-24" style={{ background: 'radial-gradient(ellipse at 80% 30%, rgba(139,92,246,0.08) 0%, transparent 50%), radial-gradient(ellipse at 20% 70%, rgba(245,179,1,0.07) 0%, transparent 50%), linear-gradient(180deg, #FAFAFA 0%, #F4F4F8 100%)' }}>
+    <section className="py-10 sm:py-12 md:py-14" style={{ background: 'radial-gradient(ellipse at 80% 30%, rgba(139,92,246,0.08) 0%, transparent 50%), radial-gradient(ellipse at 20% 70%, rgba(245,179,1,0.07) 0%, transparent 50%), linear-gradient(180deg, #FAFAFA 0%, #F4F4F8 100%)' }}>
       <div className="container-custom">
-        <motion.div className="text-center mb-16" initial={{ y: 30 }} whileInView={{ y: 0 }} viewport={viewportConfig} transition={{ duration: 0.7, ease: easings.premium }}>
-          <span className="inline-block px-4 py-2 bg-[#F5B301]/10 text-[#F5B301] rounded-full text-sm font-medium mb-4">Testimonials</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] mb-6">What Our Clients<span className="block text-gradient">Say About Us</span></h2>
+        <motion.div className="text-center mb-6 sm:mb-8" initial={{ y: 30 }} whileInView={{ y: 0 }} viewport={viewportConfig} transition={{ duration: 0.7, ease: easings.premium }}>
+          <span className="inline-block px-3.5 py-1.5 bg-[#F5B301]/10 text-[#F5B301] rounded-full text-xs font-semibold mb-3">Testimonials</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] mb-2">What Our Clients<span className="block text-gradient">Say About Us</span></h2>
         </motion.div>
 
         <motion.div
           ref={scrollRef}
-          className="flex overflow-x-auto pb-10 pt-4 px-4 -mx-4 sm:px-0 sm:-mx-0 snap-x snap-mandatory gap-6 scroll-smooth"
+          className="flex overflow-x-auto pb-4 pt-2 px-2 -mx-2 sm:px-0 sm:-mx-0 snap-x snap-mandatory gap-4 sm:gap-6 scroll-smooth"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
           variants={testimonialVariants.container}
           initial="hidden"
