@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Layout from './components/Layout';
 import ScrollProgress from './components/ScrollProgress';
@@ -25,7 +25,9 @@ import AdminQueries from './pages/admin/Queries';
 
 function App() {
   const location = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [location.pathname]);
+  useEffect(() => { 
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); 
+  }, [location.pathname, location.search]);
 
   return (
     <>
@@ -42,6 +44,8 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="testimonials" element={<TestimonialsPage />} />
+          {/* Default fallback to Home page for 404 / unknown routes */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
@@ -53,6 +57,7 @@ function App() {
           <Route path="contact" element={<AdminContactInfo />} />
           <Route path="travel-services" element={<AdminTravelServices />} />
           <Route path="queries" element={<AdminQueries />} />
+          <Route path="*" element={<Navigate to="/admin" replace />} />
         </Route>
       </Routes>
     </>
@@ -60,3 +65,4 @@ function App() {
 }
 
 export default App;
+
