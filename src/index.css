@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    color: #111111;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Primary Button - Premium Yellow */
+  .btn-primary {
+    @apply bg-[#F5B301] text-[#111111] font-semibold px-8 py-4 rounded-[16px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(245,179,1,0.3)] hover:scale-105;
+  }
+  
+  /* Secondary Button - White with border */
+  .btn-secondary {
+    @apply bg-white border-2 border-[#111111] text-[#111111] font-semibold px-8 py-4 rounded-[16px] transition-all duration-300 hover:bg-[#F3F4F6];
+  }
+  
+  /* Outline Button */
+  .btn-outline {
+    @apply border-2 border-[#F5B301] text-[#111111] font-semibold px-6 py-3 rounded-[16px] transition-all duration-300 hover:bg-[#F5B301] hover:shadow-[0_0_20px_rgba(245,179,1,0.3)];
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Premium Card */
+  .card-premium {
+    @apply bg-white border border-[#EEEEEE] rounded-[16px] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1;
+  }
+  
+  /* Glass Effect */
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-xl border border-[#EEEEEE];
+  }
+  
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#F5B301] to-[#E5A100];
+  }
+  
+  /* Section Alternate Backgrounds */
+  .section-white {
+    @apply bg-white;
+  }
+  
+  .section-light {
+    @apply bg-[#F8F9FB];
+  }
+  
+  /* Will change transform */
+  .will-change-transform {
+    will-change: transform;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* Yellow accent on hover */
+  .accent-yellow {
+    @apply transition-colors duration-300 hover:text-[#F5B301];
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Performance optimizations - only apply to specific elements, not all */
+/* Applying transform to * breaks position:fixed on navbar */
+
+/* Force GPU compositing on animated elements without breaking fixed positioning */
+[data-framer-component-type],
+.framer-motion-div {
+  transform: translateZ(0);
+}
+
+/* Hero background needs GPU layer for proper compositing */
+.hero-bg {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
