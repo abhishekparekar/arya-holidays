@@ -119,22 +119,17 @@
   50% { opacity: 0.7; }
 }
 
-/* Custom scrollbar */
+/* Hide all scrollbar tracks and thumbs visually while retaining full scroll functionality */
 ::-webkit-scrollbar {
-  width: 6px;
+  display: none;
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }
 
-::-webkit-scrollbar-track {
-  background: #F3F4F6;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Performance optimizations - only apply to specific elements, not all */

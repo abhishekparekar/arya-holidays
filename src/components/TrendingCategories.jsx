@@ -89,13 +89,13 @@ const TrendingCategories = () => {
           </div>
         </div>
 
-        {/* Horizontal Category Scroll Bar (Mobile & Desktop) */}
+        {/* Horizontal Category Scroll Bar (Hidden Scrollbar Line) */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto pb-4 pt-1 gap-3 sm:gap-5 snap-x snap-mandatory scroll-smooth"
+          className="flex overflow-x-auto pb-2 pt-1 gap-3 sm:gap-5 snap-x snap-mandatory scroll-smooth"
           style={{
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#F5B301 #E5E7EB',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
             WebkitOverflowScrolling: 'touch'
           }}
         >
