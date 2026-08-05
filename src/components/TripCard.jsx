@@ -113,19 +113,19 @@ const TripCard = ({ trip }) => {
         {/* Bottom Info Pills */}
         <div className="absolute bottom-3 left-3 right-3">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-[#555555]">
+            <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-black font-semibold shadow-sm">
               <MapPin size={12} className="text-[#F5B301]" />
               <span className="line-clamp-1">{location}</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-[#555555]">
+            <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-black font-semibold shadow-sm">
               <Clock size={12} className="text-[#F5B301]" />
               {tripNights}N / {tripDays}D
             </span>
-            <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-[#555555]">
+            <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-black font-semibold shadow-sm">
               <Star size={12} className="text-[#F5B301] fill-[#F5B301]" />
               {rating}
             </span>
-            <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-[#555555]">
+            <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md rounded-full px-3 py-1.5 text-xs text-black font-semibold shadow-sm">
               <Users size={12} className="text-[#F5B301]" />
               Max {maxGroupSize}
             </span>
@@ -137,10 +137,10 @@ const TripCard = ({ trip }) => {
       <div className="p-5">
         {/* Category & Title */}
         <div className="mb-3">
-          <span className="text-xs text-[#F5B301] font-medium uppercase tracking-wider">
+          <span className="text-xs text-[#F5B301] font-bold uppercase tracking-wider">
             {categoryName}
           </span>
-          <h3 className="text-lg sm:text-xl font-bold text-[#111111] mt-1 group-hover:text-[#F5B301] transition-colors line-clamp-1">
+          <h3 className="text-lg sm:text-xl font-bold text-black mt-1 group-hover:text-[#F5B301] transition-colors line-clamp-1">
             {title}
           </h3>
         </div>
@@ -149,7 +149,7 @@ const TripCard = ({ trip }) => {
         {highlights.length > 0 && (
           <div className="mb-4 space-y-1.5">
             {highlights.slice(0, 2).map((highlight, i) => (
-              <div key={i} className="flex items-start gap-2 text-[#555555] text-xs">
+              <div key={i} className="flex items-start gap-2 text-black font-medium text-xs">
                 <CheckCircle className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0 mt-0.5" />
                 <span className="line-clamp-1">{highlight}</span>
               </div>
@@ -160,8 +160,8 @@ const TripCard = ({ trip }) => {
         {/* Bottom Row: Price & Actions */}
         <div className="flex items-center justify-between pt-3 border-t border-[#EEEEEE]">
           <div>
-            <span className="text-2xl font-bold text-[#111111]">₹{price?.toLocaleString()}</span>
-            <span className="text-[#888888] text-sm">/person</span>
+            <span className="text-2xl font-extrabold text-black">₹{price?.toLocaleString()}</span>
+            <span className="text-black/80 font-semibold text-sm">/person</span>
           </div>
           
           <div className="flex items-center gap-2">

@@ -5,7 +5,7 @@ import { easings } from './animations';
 
 const Hero = () => {
   return (
-    <section className="relative w-full flex flex-col justify-between overflow-hidden min-h-[520px] sm:min-h-[600px] lg:min-h-[640px]" style={{ background: '#0a0a0a' }}>
+    <section className="relative w-full flex flex-col justify-between overflow-hidden min-h-[75vh] sm:min-h-[85vh] lg:min-h-[640px]" style={{ background: '#0a0a0a' }}>
 
       {/* Background image — fills entire section */}
       <div
@@ -24,7 +24,7 @@ const Hero = () => {
       }} />
 
       {/* Hero content — centered vertically */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-20 sm:pt-24 pb-6 sm:pb-8 max-w-5xl mx-auto w-full">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-12 pt-24 sm:pt-28 pb-8 sm:pb-12 max-w-5xl mx-auto w-full">
 
         {/* Tagline */}
         <motion.p

@@ -71,7 +71,7 @@ const Testimonials = () => {
             <motion.div key={testimonial.id} variants={testimonialVariants.card} whileHover={{ y: -5, scale: 1.02, transition: { type: "spring", stiffness: 150, damping: 15 } }} className="bg-white rounded-2xl p-6 border border-[#EEEEEE] hover:border-[#F5B301]/30 transition-all duration-300 will-change-transform flex-none w-[85vw] sm:w-[320px] md:w-[340px] snap-center flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-full bg-[#F5B301]/10 flex items-center justify-center mb-4"><Quote className="w-5 h-5 text-[#F5B301]" /></div>
-                <p className="text-[#555555] leading-relaxed mb-4 line-clamp-4">{testimonial.text || testimonial.message || testimonial.content || 'Great experience!'}</p>
+                <p className="text-black font-medium leading-relaxed mb-4 line-clamp-4 text-xs sm:text-sm">{testimonial.text || testimonial.message || testimonial.content || 'Great experience!'}</p>
                 <div className="flex items-center gap-1 mb-6">
                   {[...Array(5)].map((_, i) => (<Star key={i} size={14} className={i < (testimonial.rating || 5) ? 'text-[#F5B301] fill-[#F5B301]' : 'text-gray-300'} />))}
                 </div>

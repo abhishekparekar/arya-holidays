@@ -98,12 +98,12 @@ const ServicePackages = () => {
                     </div>
                     <div className="p-4 flex flex-col justify-between" style={{ minHeight: '130px' }}>
                       <div>
-                        <h3 className="text-base font-bold text-[#111111] mb-1.5 group-hover:text-[#F5B301] transition-colors">{pkg.title}</h3>
-                        <p className="text-[#555555] text-xs line-clamp-2 mb-3">{pkg.description}</p>
+                        <h3 className="text-base font-bold text-black mb-1.5 group-hover:text-[#F5B301] transition-colors">{pkg.title}</h3>
+                        <p className="text-black font-medium text-xs line-clamp-2 mb-3">{pkg.description}</p>
                       </div>
                       <div className="flex items-center justify-between mt-auto pt-2 border-t border-[#EEEEEE]">
                         <span className="text-[#F5B301] text-xs font-bold">{pkg.price}</span>
-                        <span className="text-[#888888] text-[11px] flex items-center gap-1 group-hover:text-[#F5B301] transition-colors">Explore <ArrowRight size={11} /></span>
+                        <span className="text-black font-semibold text-[11px] flex items-center gap-1 group-hover:text-[#F5B301] transition-colors">Explore <ArrowRight size={11} /></span>
                       </div>
                     </div>
                   </Link>

@@ -56,8 +56,8 @@ const WhyChooseUs = () => {
                   <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${colors.icon}`} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-base sm:text-lg font-bold text-[#111111] mb-1 group-hover:text-[#F5B301] transition-colors duration-300 leading-snug">{feature.title}</h3>
-                  <p className="text-[#666666] leading-relaxed text-xs sm:text-sm">{feature.description}</p>
+                  <h3 className="text-base sm:text-lg font-bold text-black mb-1 group-hover:text-[#F5B301] transition-colors duration-300 leading-snug">{feature.title}</h3>
+                  <p className="text-black font-medium leading-relaxed text-xs sm:text-sm">{feature.description}</p>
                 </div>
               </motion.div>
             );

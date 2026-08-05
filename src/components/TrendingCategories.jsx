@@ -62,11 +62,11 @@ const TrendingCategories = () => {
                     <div className={`absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold backdrop-blur-md ${color.bg} text-white`}>{category.order || index + 1}#</div>
                   </div>
                   <div className="p-3 sm:p-4">
-                    <h3 className="text-sm sm:text-base font-bold text-[#111111] mb-1 group-hover:text-[#F5B301] transition-colors line-clamp-1">{categoryTitle}</h3>
-                    {category.description && <p className="text-[#555555] text-xs mb-2 line-clamp-2 hidden sm:block">{category.description}</p>}
+                    <h3 className="text-sm sm:text-base font-bold text-black mb-1 group-hover:text-[#F5B301] transition-colors line-clamp-1">{categoryTitle}</h3>
+                    {category.description && <p className="text-black font-medium text-xs mb-2 line-clamp-2 hidden sm:block">{category.description}</p>}
                     <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-[#EEEEEE]">
-                      <div className="flex items-center gap-1 text-[#888888] text-[11px] sm:text-xs"><MapPin size={11} className="text-[#F5B301] flex-shrink-0" /><span className="line-clamp-1">{category.location || 'Explore'}</span></div>
-                      <div className="flex items-center gap-0.5 text-[#F5B301] text-[11px] sm:text-xs font-semibold"><span>Go</span><ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" /></div>
+                      <div className="flex items-center gap-1 text-black font-semibold text-[11px] sm:text-xs"><MapPin size={11} className="text-[#F5B301] flex-shrink-0" /><span className="line-clamp-1">{category.location || 'Explore'}</span></div>
+                      <div className="flex items-center gap-0.5 text-[#F5B301] text-[11px] sm:text-xs font-bold"><span>Go</span><ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" /></div>
                     </div>
                   </div>
                 </Link>
