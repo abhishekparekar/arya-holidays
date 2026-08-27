@@ -132,7 +132,7 @@ const TravelServices = () => {
                 <input 
                   value={service.title} 
                   onChange={e => updateService(si, 'title', e.target.value)}
-                  placeholder="e.g. Flight Tickets" 
+                  placeholder="Enter service title (e.g. Flight Tickets)" 
                   className={inputClass} 
                 />
               </div>
@@ -142,7 +142,7 @@ const TravelServices = () => {
                 <input 
                   value={service.image} 
                   onChange={e => updateService(si, 'image', e.target.value)}
-                  placeholder="https://images.unsplash.com/..." 
+                  placeholder="Enter image URL (https://...)" 
                   className={inputClass} 
                 />
               </div>
@@ -153,7 +153,7 @@ const TravelServices = () => {
                   value={service.description} 
                   onChange={e => updateService(si, 'description', e.target.value)}
                   rows={2} 
-                  placeholder="Short description..." 
+                  placeholder="Enter short service description..." 
                   className={`${inputClass} resize-none`} 
                 />
               </div>
@@ -177,7 +177,7 @@ const TravelServices = () => {
                       <input 
                         value={f} 
                         onChange={e => updateFeature(si, fi, e.target.value)}
-                        placeholder={`Feature ${fi + 1}`}
+                        placeholder={`Enter feature ${fi + 1}`}
                         className="flex-1 bg-[#1a1a1a] border border-[#333333] rounded-lg px-2.5 py-1.5 text-white text-xs focus:outline-none focus:border-[#F5B301]" 
                       />
                       <button onClick={() => removeFeature(si, fi)} className="text-red-400 hover:text-red-300 p-1">

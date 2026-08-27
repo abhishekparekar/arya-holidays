@@ -88,19 +88,19 @@ const Booking = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[#555] text-sm font-medium mb-1.5">First Name *</label>
-                  <input type="text" name="firstName" required value={formData.firstName} onChange={handleChange} className={inputClass} placeholder="John" />
+                  <input type="text" name="firstName" required value={formData.firstName} onChange={handleChange} className={inputClass} placeholder="Enter your first name" />
                 </div>
                 <div>
                   <label className="block text-[#555] text-sm font-medium mb-1.5">Last Name *</label>
-                  <input type="text" name="lastName" required value={formData.lastName} onChange={handleChange} className={inputClass} placeholder="Doe" />
+                  <input type="text" name="lastName" required value={formData.lastName} onChange={handleChange} className={inputClass} placeholder="Enter your last name" />
                 </div>
                 <div>
                   <label className="block text-[#555] text-sm font-medium mb-1.5">Email *</label>
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="john@example.com" />
+                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="Enter your email address" />
                 </div>
                 <div>
                   <label className="block text-[#555] text-sm font-medium mb-1.5">Phone *</label>
-                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="+91 98765 43210" />
+                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="Enter your mobile number" />
                 </div>
               </div>
             </div>
@@ -132,11 +132,11 @@ const Booking = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[#555] text-sm font-medium mb-1.5">Contact Name</label>
-                  <input type="text" name="emergencyName" value={formData.emergencyName} onChange={handleChange} className={inputClass} placeholder="Emergency contact name" />
+                  <input type="text" name="emergencyName" value={formData.emergencyName} onChange={handleChange} className={inputClass} placeholder="Enter emergency contact name" />
                 </div>
                 <div>
                   <label className="block text-[#555] text-sm font-medium mb-1.5">Contact Phone</label>
-                  <input type="tel" name="emergencyPhone" value={formData.emergencyPhone} onChange={handleChange} className={inputClass} placeholder="+91 98765 43210" />
+                  <input type="tel" name="emergencyPhone" value={formData.emergencyPhone} onChange={handleChange} className={inputClass} placeholder="Enter emergency mobile number" />
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@ const Booking = () => {
             <div className="bg-white rounded-2xl p-6 border border-[#EEEEEE] shadow-sm">
               <h2 className="text-lg font-semibold text-[#111111] mb-5">Additional Information</h2>
               <textarea name="message" value={formData.message} onChange={handleChange} rows={4}
-                placeholder="Any special requirements or questions..."
+                placeholder="Enter any special requirements, notes or questions..."
                 className={`${inputClass} resize-none`} />
             </div>
 

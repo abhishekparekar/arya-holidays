@@ -99,7 +99,7 @@ const ContactInfo = () => {
                   <input 
                     value={b.label} 
                     onChange={e => updateBranch(i, 'label', e.target.value)}
-                    placeholder="Branch name (e.g. Pune)" 
+                    placeholder="Enter branch name (e.g. Pune)" 
                     className={`${inputClass} w-36 sm:w-48`} 
                   />
                   <button 
@@ -114,7 +114,7 @@ const ContactInfo = () => {
                   value={b.address} 
                   onChange={e => updateBranch(i, 'address', e.target.value)}
                   rows={2} 
-                  placeholder="Full office address" 
+                  placeholder="Enter full office address" 
                   className={`${inputClass} resize-none`} 
                 />
               </div>
@@ -136,7 +136,7 @@ const ContactInfo = () => {
                 <input 
                   value={p} 
                   onChange={e => updateListItem('phones', i, e.target.value)}
-                  placeholder="+91 XXXXXXXXXX" 
+                  placeholder="Enter mobile number (+91 XXXXXXXXXX)" 
                   className={inputClass} 
                 />
                 <button onClick={() => removeListItem('phones', i)} className="text-red-400 hover:text-red-300 p-2">
@@ -161,7 +161,7 @@ const ContactInfo = () => {
                 <input 
                   value={e} 
                   onChange={ev => updateListItem('emails', i, ev.target.value)}
-                  placeholder="info@aryaholidays.com" 
+                  placeholder="Enter email address (info@aryaholidays.com)" 
                   className={inputClass} 
                 />
                 <button onClick={() => removeListItem('emails', i)} className="text-red-400 hover:text-red-300 p-2">
@@ -178,7 +178,7 @@ const ContactInfo = () => {
           <input 
             value={data.workingHours} 
             onChange={e => setData(d => ({ ...d, workingHours: e.target.value }))}
-            placeholder="Mon - Sat: 9AM - 8PM | Sunday: 10AM - 6PM" 
+            placeholder="Enter working hours (e.g. Mon - Sat: 9AM - 8PM | Sunday: 10AM - 6PM)" 
             className={inputClass} 
           />
         </div>

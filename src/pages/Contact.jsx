@@ -76,24 +76,24 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                   <div>
                     <label className="block text-[#555555] text-sm font-medium mb-2">Your Name *</label>
-                    <input type="text" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="John Doe" />
+                    <input type="text" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Enter your name" />
                   </div>
                   <div>
                     <label className="block text-[#555555] text-sm font-medium mb-2">Email *</label>
-                    <input type="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="john@example.com" />
+                    <input type="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="Enter your email address" />
                   </div>
                   <div>
                     <label className="block text-[#555555] text-sm font-medium mb-2">Phone</label>
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className={inputClass} placeholder="+91 98765 43210" />
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className={inputClass} placeholder="Enter your mobile number" />
                   </div>
                   <div>
                     <label className="block text-[#555555] text-sm font-medium mb-2">Subject *</label>
-                    <input type="text" name="subject" required value={formData.subject} onChange={handleChange} className={inputClass} placeholder="Trip enquiry" />
+                    <input type="text" name="subject" required value={formData.subject} onChange={handleChange} className={inputClass} placeholder="Enter enquiry subject" />
                   </div>
                 </div>
                 <div className="mb-6">
                   <label className="block text-[#555555] text-sm font-medium mb-2">Message *</label>
-                  <textarea name="message" required value={formData.message} onChange={handleChange} rows={5} className={`${inputClass} resize-none`} placeholder="Tell us about your travel plans..." />
+                  <textarea name="message" required value={formData.message} onChange={handleChange} rows={5} className={`${inputClass} resize-none`} placeholder="Enter your message or travel plans..." />
                 </div>
       <button type="submit" disabled={isSubmitting} className="w-full flex items-center justify-center gap-2 bg-[#F5B301] text-[#111111] font-semibold py-3 rounded-xl hover:bg-[#e0a500] transition-colors disabled:opacity-60">
                   {isSubmitting ? 'Sending...' : <> Send Message <Send size={16} /> </>}

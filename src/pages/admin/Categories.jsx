@@ -234,6 +234,7 @@ const AdminCategories = () => {
                   name="name" 
                   defaultValue={editingCategory.name || editingCategory.title} 
                   required
+                  placeholder="Enter category name (e.g. Honeymoon Special)"
                   className="w-full bg-[#1a1a1a] border border-[#333333] rounded-xl px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-[#F5B301]" 
                 />
               </div>
@@ -244,6 +245,7 @@ const AdminCategories = () => {
                   type="text" 
                   name="title" 
                   defaultValue={editingCategory.title}
+                  placeholder="Enter category subtitle or tagline"
                   className="w-full bg-[#1a1a1a] border border-[#333333] rounded-xl px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-[#F5B301]" 
                 />
               </div>
@@ -254,6 +256,7 @@ const AdminCategories = () => {
                   name="description" 
                   rows={2} 
                   defaultValue={editingCategory.description}
+                  placeholder="Enter category description..."
                   className="w-full bg-[#1a1a1a] border border-[#333333] rounded-xl px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-[#F5B301] resize-none" 
                 />
               </div>

@@ -402,7 +402,7 @@ const AdminTrips = () => {
                           type="text" 
                           value={editingTrip.title} 
                           onChange={(e) => handleFieldChange('title', e.target.value)}
-                          placeholder="e.g. Kedarkantha Trek 2026"
+                          placeholder="Enter trip title (e.g. Kedarkantha Trek 2026)"
                           className={inputStyle} 
                         />
                       </div>
@@ -412,8 +412,8 @@ const AdminTrips = () => {
                         <textarea 
                           value={editingTrip.description || ''} 
                           onChange={(e) => handleFieldChange('description', e.target.value)}
-                          rows={2}
-                          placeholder="Short summary of trip package..."
+                          rows={2} 
+                          placeholder="Enter short summary or overview of trip package..."
                           className={`${inputStyle} resize-none`} 
                         />
                       </div>
@@ -424,7 +424,7 @@ const AdminTrips = () => {
                           type="text" 
                           value={editingTrip.location || ''} 
                           onChange={(e) => handleFieldChange('location', e.target.value)}
-                          placeholder="e.g. Sankri, Uttarakhand"
+                          placeholder="Enter trip location (e.g. Sankri, Uttarakhand)"
                           className={inputStyle} 
                         />
                       </div>
@@ -608,7 +608,7 @@ const AdminTrips = () => {
                           type="text" 
                           value={item} 
                           onChange={(e) => handleItemChange('highlights', index, e.target.value)}
-                          placeholder="Enter key highlight..."
+                          placeholder="Enter key highlight (e.g. Scenic summit view)..."
                           className={inputStyle} 
                         />
                         <button type="button" onClick={() => handleRemoveItem('highlights', index)} className="p-2 text-red-400 hover:text-red-300">
@@ -644,7 +644,7 @@ const AdminTrips = () => {
                             type="text" 
                             value={item} 
                             onChange={(e) => handleItemChange('inclusions', index, e.target.value)}
-                            placeholder="Enter inclusion..."
+                            placeholder="Enter included feature (e.g. Hotel stay & meals)..."
                             className={inputStyle} 
                           />
                           <button type="button" onClick={() => handleRemoveItem('inclusions', index)} className="p-2 text-red-400">
@@ -666,7 +666,7 @@ const AdminTrips = () => {
                             type="text" 
                             value={item} 
                             onChange={(e) => handleItemChange('exclusions', index, e.target.value)}
-                            placeholder="Enter exclusion..."
+                            placeholder="Enter excluded item (e.g. Personal expenses)..."
                             className={inputStyle} 
                           />
                           <button type="button" onClick={() => handleRemoveItem('exclusions', index)} className="p-2 text-red-400">
@@ -706,14 +706,14 @@ const AdminTrips = () => {
                           type="text" 
                           value={day.title} 
                           onChange={(e) => handleItineraryChange(index, 'title', e.target.value)} 
-                          placeholder="Day title (e.g. Arrival in Manali)..."
+                          placeholder="Enter day title (e.g. Arrival in Manali)..."
                           className={inputStyle} 
                         />
                         <textarea 
                           value={day.description} 
                           onChange={(e) => handleItineraryChange(index, 'description', e.target.value)} 
                           rows={2} 
-                          placeholder="Day description & activities..."
+                          placeholder="Enter day description & activities..."
                           className={`${inputStyle} resize-none`} 
                         />
                       </div>
@@ -749,7 +749,7 @@ const AdminTrips = () => {
                           type="text" 
                           value={loc.location || ''} 
                           onChange={(e) => handlePickupLocationChange(index, 'location', e.target.value)}
-                          placeholder="Location name (e.g. Pune Swargate)"
+                          placeholder="Enter pickup location name (e.g. Pune Swargate)"
                           className={inputStyle} 
                         />
                         <div className="grid grid-cols-2 gap-2">

@@ -232,11 +232,13 @@ const AdminTestimonials = () => {
                 <div>
                   <label className="block text-gray-300 font-semibold mb-1">Name *</label>
                   <input type="text" name="name" value={formData.name} onChange={handleInputChange} required
+                    placeholder="Enter customer name"
                     className="w-full bg-[#1a1a1a] border border-[#333333] rounded-xl px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-[#F5B301]" />
                 </div>
                 <div>
                   <label className="block text-gray-300 font-semibold mb-1">Location</label>
                   <input type="text" name="location" value={formData.location} onChange={handleInputChange}
+                    placeholder="Enter location (e.g. Pune, India)"
                     className="w-full bg-[#1a1a1a] border border-[#333333] rounded-xl px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-[#F5B301]" />
                 </div>
               </div>
@@ -284,6 +286,7 @@ const AdminTestimonials = () => {
               <div>
                 <label className="block text-gray-300 font-semibold mb-1">Review Text *</label>
                 <textarea name="text" value={formData.text} onChange={handleInputChange} rows={3} required
+                  placeholder="Enter customer review text..."
                   className="w-full bg-[#1a1a1a] border border-[#333333] rounded-xl px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-[#F5B301] resize-none" />
               </div>
 
