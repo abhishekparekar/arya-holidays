@@ -104,6 +104,14 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
+            <div className="bg-white rounded-2xl p-5 border border-[#EEEEEE] shadow-sm flex items-center gap-4">
+              <img src="/arya-logo-transparent.png" alt="Arya Holidays" className="h-14 sm:h-16 w-auto object-contain" />
+              <div>
+                <h3 className="font-bold text-[#111111] text-base">Arya Holidays</h3>
+                <p className="text-[#F5B301] text-xs font-semibold">Reliable Travel Solutions</p>
+                <p className="text-gray-500 text-[11px] mt-0.5">Affordable Adventure, Priceless Memories</p>
+              </div>
+            </div>
             {contactCards.map((info, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 border border-[#EEEEEE] shadow-sm">
                 <div className="flex items-start gap-4">

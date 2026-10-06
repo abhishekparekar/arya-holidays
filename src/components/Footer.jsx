@@ -57,11 +57,12 @@ const Footer = () => {
 
           {/* Brand & Description (4 cols) */}
           <div className="md:col-span-4 space-y-3">
-            <Link to="/" className="inline-block bg-white/95 p-2 rounded-xl backdrop-blur-md shadow-md">
-              <img src="/arya.png" alt="Arya Holidays" className="h-10 sm:h-12 w-auto object-contain" />
-              <span className="block text-[8px] font-extrabold tracking-wider uppercase text-[#111111] mt-0.5 text-center">
-                Reliable Travel Solutions
-              </span>
+            <Link to="/" className="inline-block transition-transform duration-200 hover:scale-105" title="Arya Holidays - Reliable Travel Solutions">
+              <img
+                src="/arya-logo-white.png"
+                alt="Arya Holidays"
+                className="h-16 sm:h-20 w-auto object-contain drop-shadow-md"
+              />
             </Link>
             <p className="text-white/75 text-xs sm:text-sm leading-relaxed max-w-sm">
               Your premium travel partner crafting unforgettable domestic & international holidays, trekking adventures, and complete travel services.

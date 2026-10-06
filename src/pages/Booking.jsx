@@ -77,6 +77,13 @@ const Booking = () => {
     <div className="min-h-screen bg-[#F8F9FB] pt-28 pb-20">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto">
+          <div className="flex items-center gap-3 mb-4 bg-white p-3 rounded-2xl border border-[#EEEEEE] shadow-sm w-fit">
+            <img src="/arya-logo-transparent.png" alt="Arya Holidays" className="h-11 sm:h-12 w-auto object-contain" />
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#F5B301] block">Official Booking</span>
+              <span className="text-xs font-semibold text-[#111111]">Arya Holidays Travel Desk</span>
+            </div>
+          </div>
           <h1 className="text-3xl md:text-4xl font-bold text-[#111111] mb-1">Book Your Tour</h1>
           {trip && <p className="text-[#F5B301] font-medium mb-1">{trip.title}</p>}
           <p className="text-[#666] mb-8 text-sm">Fill in the details below to reserve your spot.</p>

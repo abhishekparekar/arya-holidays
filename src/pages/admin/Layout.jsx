@@ -44,8 +44,8 @@ const AdminLayout = () => {
 
       {/* ================= MOBILE HEADER ================= */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 h-14 bg-[#111111] border-b border-[#222222] px-4 flex items-center justify-between">
-        <Link to="/admin" className="flex items-center gap-2">
-          <img src="/arya.png" alt="Arya Holidays" className="h-8 w-auto object-contain bg-white/90 p-1 rounded-md" />
+        <Link to="/admin" className="flex items-center gap-2.5">
+          <img src="/arya-logo-white.png" alt="Arya Holidays" className="h-9 w-auto object-contain" />
           <div>
             <span className="text-xs font-bold text-white block leading-tight">Arya Holidays</span>
             <span className="text-[9px] text-[#F5B301] font-semibold block">Admin Panel</span>
@@ -119,15 +119,15 @@ const AdminLayout = () => {
         <div className="h-16 flex items-center justify-between px-4 border-b border-[#222222]">
           {!collapsed ? (
             <Link to="/admin" className="flex items-center gap-3">
-              <img src="/arya.png" alt="Arya Holidays" className="h-9 w-auto object-contain bg-white/90 p-1 rounded-md" />
+              <img src="/arya-logo-white.png" alt="Arya Holidays" className="h-10 w-auto object-contain" />
               <div>
                 <h1 className="text-white font-bold text-sm leading-tight">Arya Holidays</h1>
                 <p className="text-[#F5B301] text-[10px] font-semibold">Admin Panel</p>
               </div>
             </Link>
           ) : (
-            <Link to="/admin" className="mx-auto">
-              <img src="/arya.png" alt="Arya Holidays" className="h-8 w-auto object-contain bg-white/90 p-1 rounded-md" />
+            <Link to="/admin" className="mx-auto" title="Arya Holidays Admin">
+              <img src="/arya-logo-white.png" alt="Arya Holidays" className="h-8 w-auto object-contain" />
             </Link>
           )}
         </div>

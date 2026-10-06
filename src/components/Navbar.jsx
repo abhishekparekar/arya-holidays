@@ -69,23 +69,20 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[64px] sm:h-[72px] md:h-[76px]">
+        <div className="flex items-center justify-between h-[68px] sm:h-[74px] md:h-[80px]">
 
           {/* Logo — Clicks to refresh if on home */}
           <Link
             to="/"
             onClick={handleLogoClick}
-            className="flex flex-col items-center justify-center flex-shrink-0 cursor-pointer pt-0.5"
+            className="flex items-center flex-shrink-0 cursor-pointer py-1"
             title="Arya Holidays - Refresh Home"
           >
             <img
-              src="/arya.png"
+              src="/arya-logo-transparent.png"
               alt="Arya Holidays"
-              className="h-9 sm:h-[42px] md:h-[46px] w-auto object-contain"
+              className="h-12 sm:h-14 md:h-[62px] w-auto object-contain transition-transform duration-200 hover:scale-[1.02]"
             />
-            <span className="text-[7px] sm:text-[8px] font-extrabold tracking-wider uppercase text-[#111111] mt-[1px]">
-              Reliable Travel Solutions
-            </span>
           </Link>
 
           {/* Desktop Links */}
@@ -113,7 +110,7 @@ const Navbar = () => {
           <Link
             to="/trips"
             onClick={handleNavClick}
-            className="hidden lg:inline-flex items-center justify-center bg-[#F5B301] text-[#111111] font-bold font-inter tracking-wide px-5 py-2 rounded-full text-xs xl:text-sm hover:bg-[#ffc107] hover:shadow-[0_4px_15px_rgba(245,179,1,0.4)] transition-all duration-200"
+            className="hidden lg:inline-flex items-center justify-center bg-[#F5B301] text-[#111111] font-bold font-inter tracking-wide px-5 py-2.5 rounded-full text-xs xl:text-sm hover:bg-[#ffc107] hover:shadow-[0_4px_15px_rgba(245,179,1,0.4)] transition-all duration-200"
           >
             Book Now
           </Link>
@@ -136,6 +133,10 @@ const Navbar = () => {
         }`}
       >
         <div className="px-4 py-3 space-y-1 overflow-y-auto max-h-[80vh] pb-6">
+          <div className="flex items-center justify-between pb-3 mb-2 border-b border-gray-100">
+            <img src="/arya-logo-transparent.png" alt="Arya Holidays" className="h-11 w-auto object-contain" />
+            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Explore Tours</span>
+          </div>
           {navLinks.map((link) => (
             <Link
               key={link.path}

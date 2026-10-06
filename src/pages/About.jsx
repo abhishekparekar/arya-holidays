@@ -32,7 +32,13 @@ const About = () => {
         {/* Story + Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-8 sm:mb-12">
           <div>
-            <span className="text-[#F5B301] font-semibold mb-2 block text-xs uppercase tracking-wider">Our Story</span>
+            <div className="flex items-center gap-3.5 mb-3.5">
+              <img src="/arya-logo-transparent.png" alt="Arya Holidays" className="h-14 sm:h-16 w-auto object-contain" />
+              <div>
+                <span className="text-[#F5B301] font-bold block text-xs uppercase tracking-wider">Our Story</span>
+                <span className="text-[#888888] text-[11px] font-medium">Affordable Adventure, Priceless Memories</span>
+              </div>
+            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mb-4">Where Adventure Meets Excellence</h2>
             <p className="text-[#555555] text-xs sm:text-sm leading-relaxed mb-3">
               Arya Holidays was established in 2016 in Sambhaji Nagar with a vision to provide reliable and personalized travel solutions. From a humble beginning, we have grown steadily by focusing on customer satisfaction, trust, and quality service.
